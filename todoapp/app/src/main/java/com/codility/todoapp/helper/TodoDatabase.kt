@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [Todo::class], version = 2) // Update version to 2
+@Database(entities = [Todo::class], version = 2)
 abstract class TodoDatabase : RoomDatabase() {
     abstract fun todoDao(): TodoDao
 
@@ -25,7 +25,7 @@ abstract class TodoDatabase : RoomDatabase() {
                         TodoDatabase::class.java,
                         "todo_database"
                     )
-                        .addMigrations(MIGRATION_1_2) // Add migration from version 1 to 2
+                        .addMigrations(MIGRATION_1_2)
                         .build()
 
                     INSTANCE = instance
@@ -35,10 +35,10 @@ abstract class TodoDatabase : RoomDatabase() {
             }
         }
 
-        // Migration from version 1 to 2
+
         private val MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                // Add a new column 'priorityLevel' to the existing 'todoTable'
+
                 database.execSQL("ALTER TABLE todoTable ADD COLUMN priorityLevel TEXT NOT NULL DEFAULT 'Level One'")
             }
         }

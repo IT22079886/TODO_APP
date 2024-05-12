@@ -41,14 +41,14 @@ class MyAdapter(private var todoList: ArrayList<Todo>) : RecyclerView.Adapter<My
                 tvTitle.text = todo.title
                 tvDesc.text = todo.description
                 tvTimestamp.text = todo.timestamp
-                tvPriority.text = "Priority: ${todo.priorityLevel}" // Display priority level
+                tvPriority.text = "Priority: ${todo.priorityLevel}"
 
-                // Set text color based on priority level
+
                 when (todo.priorityLevel) {
                     "Level 1" -> tvPriority.setTextColor(ContextCompat.getColor(itemView.context, R.color.one))
                     "Level 2" -> tvPriority.setTextColor(ContextCompat.getColor(itemView.context, R.color.two))
                     "Level 3" -> tvPriority.setTextColor(ContextCompat.getColor(itemView.context, R.color.three))
-                    else -> tvPriority.setTextColor(ContextCompat.getColor(itemView.context, R.color.white)) // Default color
+                    else -> tvPriority.setTextColor(ContextCompat.getColor(itemView.context, R.color.white))
                 }
 
                 root.setOnClickListener {

@@ -20,7 +20,7 @@ interface TodoDao {
     @Delete
     fun delete(todo: Todo)
 
-    // Additional method to get todos by priority level
+
     @Query("SELECT * FROM todoTable WHERE priorityLevel = :priority ORDER BY timestamp DESC")
     fun getTodosByPriority(priority: String): List<Todo>
 }

@@ -9,15 +9,15 @@ import com.codility.recyclerview.ScrollingActivity
 
 class SplashActivity : AppCompatActivity() {
 
-    private val SPLASH_DISPLAY_LENGTH = 2000 // Splash screen duration in milliseconds
+    private val SPLASH_DISPLAY_LENGTH = 2000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splashscreen)
 
-        // Delayed transition to the main activity
+
         Handler().postDelayed({
-            // Start main activity and finish splash activity
+
             val mainIntent = Intent(this@SplashActivity, ScrollingActivity::class.java)
             startActivity(mainIntent)
             finish()

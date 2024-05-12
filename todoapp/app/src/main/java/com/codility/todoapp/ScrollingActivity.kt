@@ -55,7 +55,7 @@ class ScrollingActivity : AppCompatActivity(), MyAdapter.OnClickListener {
         CoroutineScope(Dispatchers.IO).launch {
             val todoList = todoDao.getAllTodos().sortedWith(compareBy(
                 { it.priorityLevel },
-                { it.title } // Add additional sorting criteria if needed
+                { it.title }
             ))
             CoroutineScope(Dispatchers.Main).launch {
                 myAdapter.updateData(todoList)
@@ -71,12 +71,12 @@ class ScrollingActivity : AppCompatActivity(), MyAdapter.OnClickListener {
         alertDialog.setPositiveButton("YES") { dialog, which ->
             CoroutineScope(Dispatchers.IO).launch {
                 todoDao.delete(todo)
-                getTodoList() // Refresh the list
+                getTodoList()
             }
         }
 
         alertDialog.setNegativeButton("NO") { dialog, which ->
-            dialog.cancel() // Cancel the dialog
+            dialog.cancel()
         }
         alertDialog.show()
     }
